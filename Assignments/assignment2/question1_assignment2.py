@@ -1,7 +1,7 @@
 import pandas as pd
 
 # reading the csv into a dataframe
-df = pd.read_csv("./Assignments/tweetsSample.csv", header=None)
+df = pd.read_csv("./Assignments/assignment2/tweetsSample.csv", header=None)
 
 # Removing blank columns 
 df = df.dropna(subset=[0])
@@ -48,4 +48,4 @@ print(f"There are {df[5].sum()} duplicates with a similarity of 70% that are rem
 df = df.drop(0, axis = 1)
 
 # Back to csv
-df.to_csv('./Assignments/processedData.csv')
+df.to_csv('./Assignments/assignment2/processedData.csv')
