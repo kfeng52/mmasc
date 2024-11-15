@@ -1,6 +1,6 @@
 import pandas as pd
 
-
+# reading the csv into a dataframe
 df = pd.read_csv("./Assignments/tweetsSample.csv", header=None)
 
 # Removing blank columns 
