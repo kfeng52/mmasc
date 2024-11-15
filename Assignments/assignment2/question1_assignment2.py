@@ -1,10 +1,10 @@
 import pandas as pd
 
 # reading the csv into a dataframe
-df = pd.read_csv("./Assignments/assignment2/tweetsSample.csv", header=None)
+df = pd.read_csv("./Assignments/assignment2/tweetsSample.csv")
 
 # Removing blank columns 
-df = df.dropna(subset=[0])
+df = df.dropna(subset=['time'])
 
 # Removes duplicate values 
 def isDup(tweet1, tweet2, threshold = 0.7):
@@ -28,24 +28,21 @@ def isDup(tweet1, tweet2, threshold = 0.7):
     else:
         return False
 
-# Removing empty column: data cleaning 
-df = df.drop(5, axis = 1)
-
 #Comparing the text in each row 
 for i in range(0, len(df)-1):
-    val1 = df.loc[i, 1]
-    val2 = df.loc[i + 1, 1]
-    result = isDup(val1, val2)  
-    df.loc[i, 5] = float(result)
-
-# Removing true rows
-df = df[df[5] != True]
+    val1 = df.loc[i, 'text']
+    val2 = df.loc[i + 1, 'text']
+    df.loc[i, 'isDup'] = float(isDup(val1, val2))
 
 # Message
-print(f"There are {df[5].sum()} duplicates with a similarity of 70% that are removed.")
+print(f"There are {df['isDup'].sum()} duplicates with a similarity of 70% that are removed.")
 
-# Removing time column (0)
-df = df.drop(0, axis = 1)
+# Removing true rows
+df = df[df['isDup'] != True]
+
+# Removing time and id column
+df = df.drop('time', axis = 1)
+df = df.drop('id', axis = 1)
 
 # Back to csv
-df.to_csv('./Assignments/assignment2/processedData.csv', index=False, header=None)
+df.to_csv('./Assignments/assignment2/processedData.csv', index=False)

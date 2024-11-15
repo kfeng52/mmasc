@@ -2,7 +2,7 @@ import pandas as pd
 
 # reading the csv into a dataframe
 df_keywords = pd.read_csv("./Assignments/assignment2/keywords.csv")
-df_text = pd.read_csv("./Assignments/assignment2/processedData.csv", header=None)
+df_text = pd.read_csv("./Assignments/assignment2/processedData.csv")
 
 # Storing the key words in lists 
 neg_words = df_keywords['NegativeWords'].tolist()
@@ -20,7 +20,7 @@ def sentimentCategory(sentVal):
 # Calculate the sentiment of each score 
 for i in range(0, len(df_text)):
     score = 0 
-    text = df_text.loc[i, 0]
+    text = df_text.loc[i, 'text']
     text = text.lower().split()
 
     # Determining the number of positive and negative words 
@@ -31,10 +31,10 @@ for i in range(0, len(df_text)):
     score = num_positive_words*10 - num_negative_words*10
 
     # Storing the sentiment value in the df 
-    df_text.loc[i, 5] = sentimentCategory(score)
+    df_text.loc[i, 'sentiment'] = sentimentCategory(score)
 
 # Back to csv
-df_text.to_csv('./Assignments/assignment2/processedKeywordData.csv', index=False, header=None)
+df_text.to_csv('./Assignments/assignment2/processedKeywordData.csv', index=False, )
 
 
 
