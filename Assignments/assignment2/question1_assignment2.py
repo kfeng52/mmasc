@@ -48,4 +48,4 @@ print(f"There are {df[5].sum()} duplicates with a similarity of 70% that are rem
 df = df.drop(0, axis = 1)
 
 # Back to csv
-df.to_csv('./Assignments/assignment2/processedData.csv')
+df.to_csv('./Assignments/assignment2/processedData.csv', index=False, header=None)
