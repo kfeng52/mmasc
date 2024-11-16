@@ -37,7 +37,7 @@ for i in range(0, len(df_text)):
     df_text.loc[i, 'sentiment'] = sentimentCategory(score)
 
 # Back to csv
-df_text.to_csv('./Assignments/assignment2/processedKeywordData.csv', index=False, )
+df_text.to_csv('./Assignments/assignment2/processedKeywordData.csv', index=False)
 
 
 

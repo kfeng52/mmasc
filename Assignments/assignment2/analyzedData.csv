@@ -1,53 +1,53 @@
 index,0,1,2,3,4
-Aortic aneurysm,Cardiovascular and circulatory diseases,0.4082,11,27,11
-Atrial fibrillation,Cardiovascular and circulatory diseases,0.9333,21,40,14
-Atrial flutter,Cardiovascular and circulatory diseases,-0.9091,2,6,3
-Cardiomyopathy,Cardiovascular and circulatory diseases,2.5373,23,31,13
-Endocarditis,Cardiovascular and circulatory diseases,1.4706,34,43,25
-Hypertensive heart disease,Cardiovascular and circulatory diseases,-3.0,0,7,3
-Ischemic heart,Cardiovascular and circulatory diseases,-0.4762,5,10,6
-Peripheral Arterial disease,Cardiovascular and circulatory diseases,4.6154,6,5,2
-Peripheral vascular disease,Cardiovascular and circulatory diseases,1.0,1,7,2
-Rheumatic heart,Cardiovascular and circulatory diseases,-2.8125,5,16,11
-ischemic stroke,Cardiovascular and circulatory diseases,1.1538,20,41,17
-myocarditis,Cardiovascular and circulatory diseases,-0.5556,11,12,13
-Asthma,Chronic respiratory diseases,0.4511,35,71,27
-COPD,Chronic respiratory diseases,0.0,21,40,21
-Pneumoconiosis,Chronic respiratory diseases,0.0,1,3,1
-Diabetes,"Diabetes, urogenital, blood, and endocrine diseases",0.8403,35,59,25
-kidney disease,"Diabetes, urogenital, blood, and endocrine diseases",0.2581,40,82,33
-Gall bladder,Digestive diseases (except cirrhosis),3.5714,27,46,11
-Pancreatitis,Digestive diseases (except cirrhosis),1.7143,51,57,32
-Peptic ulcer,Digestive diseases (except cirrhosis),2.2,16,26,8
-HIV/AIDS,HIV/AIDS and tuberculosis,-0.5344,32,64,35
-Tuberculosis,HIV/AIDS and tuberculosis,1.1333,51,67,32
-Abortion,Maternal disorders,-0.4673,22,56,29
-Maternal hemorrhage,Maternal disorders,4.375,7,6,3
-Breast cancer,Neoplasms,1.1268,44,67,31
-Cervical cancer,Neoplasms,-0.3704,41,78,43
-Kidney cancer,Neoplasms,1.1667,18,26,16
-Leukemia,Neoplasms,0.6522,41,65,32
-Liver cancer,Neoplasms,0.221,49,85,47
-Non-Hodgkin lymphoma,Neoplasms,-0.3333,11,37,12
-Ovarian cancer,Neoplasms,0.2586,24,68,24
-Pancreatic cancer,Neoplasms,1.2805,45,91,28
-Prostate cancer,Neoplasms,1.5672,36,74,24
-lung cancer,Neoplasms,2.1818,20,25,10
-Alzheimer,Neurological disorders,0.7438,33,56,32
-Epilepsy,Neurological disorders,1.371,36,66,22
-Migraine,Neurological disorders,2.0,13,14,8
-Parkinsons disease,Neurological disorders,-1.8056,27,74,43
-multiple sclerosis,Neurological disorders,0.7092,39,71,31
-
-Cardiovascular and circulatory diseases,0.8135,139,245,120
-Chronic respiratory diseases,0.2727,57,114,49
-"Diabetes, urogenital, blood, and endocrine diseases",0.5109,75,141,58
-Digestive diseases (except cirrhosis),2.3723,94,129,51
-HIV/AIDS and tuberculosis,0.3559,83,131,67
-Maternal disorders,0.1626,29,62,32
-Neoplasms,0.7013,329,616,267
-Neurological disorders,0.3009,148,281,136
-
-954,1719,780
-Gall bladder
-Digestive diseases (except cirrhosis)
+Aortic aneurysm,Cardiovascular and circulatory diseases,2,17,40,8
+Atrial fibrillation,Cardiovascular and circulatory diseases,2.7143,26,33,11
+Atrial flutter,Cardiovascular and circulatory diseases,1.25,2,14,0
+Cardiomyopathy,Cardiovascular and circulatory diseases,-0.5333,14,42,19
+Endocarditis,Cardiovascular and circulatory diseases,-0.7407,13,51,17
+Hypertensive heart disease,Cardiovascular and circulatory diseases,-7.2727,0,7,4
+Ischemic heart,Cardiovascular and circulatory diseases,-3.75,2,15,7
+Peripheral Arterial disease,Cardiovascular and circulatory diseases,-0.625,2,11,3
+Peripheral vascular disease,Cardiovascular and circulatory diseases,-5,0,7,5
+Rheumatic heart,Cardiovascular and circulatory diseases,-1.3889,7,20,9
+ischemic stroke,Cardiovascular and circulatory diseases,-5,6,27,35
+myocarditis,Cardiovascular and circulatory diseases,-2.75,9,16,15
+Asthma,Chronic respiratory diseases,-0.7179,30,126,39
+COPD,Chronic respiratory diseases,-10.1538,4,7,54
+Pneumoconiosis,Chronic respiratory diseases,-4.5455,0,6,5
+Diabetes,"Diabetes, urogenital, blood, and endocrine diseases",1.7532,50,78,26
+kidney disease,"Diabetes, urogenital, blood, and endocrine diseases",-2.6667,24,52,44
+Gall bladder,Digestive diseases (except cirrhosis),1.236,25,53,11
+Pancreatitis,Digestive diseases (except cirrhosis),-3.6937,16,50,45
+Peptic ulcer,Digestive diseases (except cirrhosis),-2.1154,7,29,16
+HIV/AIDS,HIV/AIDS and tuberculosis,11.3768,110,19,9
+Tuberculosis,HIV/AIDS and tuberculosis,1.7886,32,71,20
+Abortion,Maternal disorders,0.4065,26,77,20
+Maternal hemorrhage,Maternal disorders,-7.2727,0,5,6
+Breast cancer,Neoplasms,2.1429,65,62,41
+Cervical cancer,Neoplasms,2.5564,45,65,23
+Kidney cancer,Neoplasms,0,19,29,20
+Leukemia,Neoplasms,0.5036,36,70,33
+Liver cancer,Neoplasms,-1.5584,34,71,49
+Non-Hodgkin lymphoma,Neoplasms,2.75,28,37,15
+Ovarian cancer,Neoplasms,-0.1471,21,27,20
+Pancreatic cancer,Neoplasms,2.7848,57,77,24
+Prostate cancer,Neoplasms,0.6918,31,98,30
+lung cancer,Neoplasms,2.1918,21,44,8
+Alzheimer,Neurological disorders,1.1392,53,72,33
+Epilepsy,Neurological disorders,3.7037,51,69,15
+Migraine,Neurological disorders,-1.7143,6,21,8
+Parkinsons disease,Neurological disorders,2.2727,36,60,14
+multiple sclerosis,Neurological disorders,1.1927,29,61,19
+,,,,,
+Cardiovascular and circulatory diseases,-0.9728,98,283,133,
+Chronic respiratory diseases,-3.1365,34,139,98,
+"Diabetes, urogenital, blood, and endocrine diseases",-0.1825,74,130,70,
+Digestive diseases (except cirrhosis),-1.627,48,132,72,
+HIV/AIDS and tuberculosis,6.8582,142,90,29,
+Maternal disorders,-0.2239,26,82,26,
+Neoplasms,1.2083,357,580,263,
+Neurological disorders,1.8282,175,283,89,
+,,,,,
+954,1719,780,,,
+Epilepsy,,,,,
+Neurological disorders,,,,,
