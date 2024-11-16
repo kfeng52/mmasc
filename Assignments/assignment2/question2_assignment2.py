@@ -31,6 +31,9 @@ for i in range(0, len(df_text)):
     score = num_positive_words*10 - num_negative_words*10
 
     # Storing the sentiment value in the df 
+    df_text.loc[i, 'sentimentValue'] = score
+
+    # Storing the sentiment in the df 
     df_text.loc[i, 'sentiment'] = sentimentCategory(score)
 
 # Back to csv
