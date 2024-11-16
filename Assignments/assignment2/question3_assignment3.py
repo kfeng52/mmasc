@@ -83,7 +83,7 @@ df2 = pd.DataFrame.from_dict(gr, orient='index')
 df2 = df2.reset_index()
 
 # file path
-csv_file = 'Assignments\assignment2\analyzedData.csv'
+csv_file = './Assignments/assignment2/analyzedData.csv'
 
 # Write DataFrame 1 
 df1.to_csv(csv_file, index=False)
