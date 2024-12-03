@@ -109,23 +109,27 @@ def convert_time_to_minutes(dataframe, column_name):
 
     # Apply the function to the specified column and create a new column 'time_in_minutes'
     dataframe[column_name + '_minutes'] = dataframe[column_name].apply(time_to_minutes)
-
     return dataframe
 
-
+# Converting function to millions
 def convert_to_millions(dataframe, column_name):
-    def parse_million(value):
+    def parse_value(value):
         if isinstance(value, str):
-            # Remove the '$' and 'M', convert to float
-            value = re.sub(r'[\$,M]', '', value)
+            # Remove '$' and handle 'K' or 'M'
+            value = value.replace('$', '')  # Remove dollar sign
             try:
-                return float(value)
+                if 'M' in value:
+                    return float(value.replace('M', ''))  # Convert millions
+                elif 'K' in value:
+                    return float(value.replace('K', '')) / 1000  # Convert thousands to millions
+                else:
+                    return float(value) # Convert raw numbers to millions
             except ValueError:
                 return 0.0
         return 0.0
     # Create the new column with the format "<column_name> in millions"
     new_column_name = column_name + ' in millions'
-    dataframe[new_column_name] = dataframe[column_name].apply(parse_million)
+    dataframe[new_column_name] = dataframe[column_name].apply(parse_value)
     return dataframe
 
 ### Cleaning Dataset 
@@ -143,6 +147,7 @@ df1['box_office'] = df1['Gross in US & Canada (in millions)'] - df1['Budget (in 
 # Cleaning Rotten Tomatoes Movie (df2)
 df2 = condense_ratings(df2, "rating")
 df2 = filter_rows_by_values(df2, "rating", approved_ratings_list)
+df2 = remove_nan_rows(df2, 'box_office_(gross_usa)')
 df2 = count_commas_and_add_column(df2, 'director')
 df2 = count_commas_and_add_column(df2, 'producer')
 df2 = count_commas_and_add_column(df2, 'writer')

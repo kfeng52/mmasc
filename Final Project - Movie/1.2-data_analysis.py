@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt 
 import seaborn as sns
 import pandas as pd
+import scipy.stats as stats
 
 # Importing Data
 df1 = pd.read_csv('./Final Project - Movie/Cleaned IMDb Movie 1.1.csv')
@@ -34,118 +35,29 @@ def summarize_column(df, column_name):
         }
     return stats
 
-# Function for bar graph
+def categorical_numerical_stats(df, categorical_col, numerical_col, ci=0.95):
 
-def single_bar_graph(df, category_col, title='Bar Graph', xlabel=None, ylabel='Count'):
-    """
-    Creates a single bar graph for counts of a categorical column.
+    print(f"Statistics for {categorical_col} vs {numerical_col} (CI = {ci * 100:.1f}%):\n")
+    print(f"{'Category':<15}{'Mean':<10}{'Median':<10}{'Q1':<10}{'Q3':<10}{'Std Dev':<10}{'Range':<10}{'Min':<10}{'Max':<10}")
+    print("-" * 95)
     
-    Parameters:
-        df (pd.DataFrame): The input DataFrame.
-        category_col (str): The column to count and plot.
-        title (str): Title of the bar graph (default: 'Bar Graph').
-        xlabel (str): Label for the x-axis (default: None, uses column name).
-        ylabel (str): Label for the y-axis (default: 'Count').
+    for category, group in df.groupby(categorical_col):
+        values = group[numerical_col].dropna()
+        mean = values.mean()
+        median = values.median()
+        q1 = values.quantile(0.25)
+        q3 = values.quantile(0.75)
+        std_dev = values.std()
+        data_range = values.max() - values.min()
+        min_val = values.min()
+        max_val = values.max()
+        sem = stats.sem(values)
+        margin_of_error = sem * stats.t.ppf((1 + ci) / 2, len(values) - 1)
+        lower_ci = mean - margin_of_error
+        upper_ci = mean + margin_of_error
+        
+        print(f"{category:<15}{mean:<10.2f}{median:<10.2f}{q1:<10.2f}{q3:<10.2f}{std_dev:<10.2f}{data_range:<10.2f}{min_val:<10.2f}{max_val:<10.2f}")
 
-    Returns:
-        None: Displays the bar graph.
-    """
-    # Check if the column exists
-    if category_col not in df.columns:
-        raise ValueError(f"Column '{category_col}' not found in the DataFrame.")
-    
-    # Count occurrences of each unique value in the column
-    counts = df[category_col].value_counts()
 
-    # Plot the bar graph
-    plt.figure(figsize=(8, 5))
-    plt.bar(counts.index, counts.values, color='skyblue', edgecolor='black')
-
-    # Add labels and title
-    plt.title(title)
-    plt.xlabel(xlabel if xlabel else category_col)
-    plt.ylabel(ylabel)
-    plt.xticks(rotation=45, ha='right')
-
-    # Annotate bar heights
-    for i, value in enumerate(counts.values):
-        plt.text(i, value + 0.5, str(value), ha='center', va='bottom')
-
-    # Show the plot
-    plt.tight_layout()
-    plt.show()
-
-def analyze_by_category(df, categorical_col, numerical_col):
-    """
-    Performs statistical analysis for a numerical column grouped by a categorical column.
-
-    Parameters:
-        df (pd.DataFrame): The input DataFrame.
-        categorical_col (str): The column with categorical values (e.g., onsite/offsite).
-        numerical_col (str): The numerical column to analyze.
-
-    Returns:
-        pd.DataFrame: A summary table with statistics for each category.
-    """
-    # Check if the columns exist
-    if categorical_col not in df.columns or numerical_col not in df.columns:
-        raise ValueError(f"Columns '{categorical_col}' or '{numerical_col}' not found in the DataFrame.")
-    
-    # Handle missing values (optional, depending on your needs)
-    df = df.dropna(subset=[categorical_col, numerical_col])
-    
-    # Group by the categorical column and calculate statistics
-    summary = df.groupby(categorical_col)[numerical_col].agg(
-        mean='mean',
-        median='median',
-        std='std',
-        min='min',
-        max='max',
-        count='count'
-    ).reset_index()
-
-    return summary
-
-def analyze_two_categoricals(df, cat_col1, cat_col2, numerical_col=None):
-    """
-    Performs analysis for two categorical columns and optionally a numerical column.
-
-    Parameters:
-        df (pd.DataFrame): The input DataFrame.
-        cat_col1 (str): The first categorical column (e.g., onsite/offsite).
-        cat_col2 (str): The second categorical column (e.g., type of disability).
-        numerical_col (str, optional): The numerical column to analyze. Defaults to None.
-
-    Returns:
-        pd.DataFrame: A summary table with counts (and numerical stats if numerical_col is provided).
-    """
-    # Check if required columns exist
-    required_cols = [cat_col1, cat_col2]
-    if numerical_col:
-        required_cols.append(numerical_col)
-    for col in required_cols:
-        if col not in df.columns:
-            raise ValueError(f"Column '{col}' not found in the DataFrame.")
-    
-    # Handle missing values
-    df = df.dropna(subset=required_cols)
-
-    # Group by the two categorical columns
-    group_cols = [cat_col1, cat_col2]
-    if numerical_col:
-        summary = df.groupby(group_cols).agg(
-            count=('index', 'count'),  # Count of rows in each group
-            sum=(numerical_col, 'sum'),
-            mean=(numerical_col, 'mean'),
-            median=(numerical_col, 'median'),
-            std=(numerical_col, 'std'),
-            min=(numerical_col, 'min'),
-            max=(numerical_col, 'max')
-        ).reset_index()
-    else:
-        # Only count if no numerical column is provided
-        summary = df.groupby(group_cols).size().reset_index(name='count')
-    
-    return summary
-
+categorical_numerical_stats(df1, 'Motion Picture Rating', 'Rating (Out of 10)')
 
